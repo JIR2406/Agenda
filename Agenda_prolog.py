@@ -14,7 +14,7 @@ def pintaMenu(arr,titulo:str) -> int:
 
     return int(opcion)
 
-def paresInfinitos():
+def paresInfinitos(): # Evaluacion perezosa
     num = 0
     while True:
         if num % 2 == 0:
@@ -22,7 +22,7 @@ def paresInfinitos():
             
         num += 1
 
-def paresInfinitosNormal(x:int):
+def paresInfinitosNormal(x:int): # Demostracion sin la evaluacion perezosa
     cont = 0
     for i in range(0,100):
         if i % 2 == 0:
@@ -72,10 +72,10 @@ def modificar(dic:dict, id):
 
 def validaFecha(fecha):
     try:
-        fecha_actual = dt.now().date()
-        fecha_ingresada = dt.strptime(fecha, "%d-%m-%Y").date()
+        fecha_actual = dt.now().date() 
+        fecha_ingresada = dt.strptime(fecha, "%d-%m-%Y").date() # Utilizamos el modulo date para validar la fecha
 
-        if fecha_ingresada <= fecha_actual:
+        if fecha_ingresada <= fecha_actual: # Comparamos si la fecha es menor a la fecha actual puesto que es fecha de nacimiento
             return True
         else:
             return False
@@ -141,8 +141,8 @@ if __name__ == '__main__':
                 print(f"Tiempo de ejecucion evaluacion perezosa: {tiempo_T}")
                 print("\n-------- sin evaluacion perezos -----------")
 
-                tiempo_ini = time()
-                paresInfinitosNormal(10)
+                tiempo_ini = time() # Calculamos el tiempo de ejecucion de cada algoritmo
+                paresInfinitosNormal(10) # Para poder compararlos
                 tiempo_Fin = time()
                 tiempo_T = tiempo_Fin - tiempo_Ini
 
